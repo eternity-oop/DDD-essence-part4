@@ -6,6 +6,7 @@ import org.eternity.phone.shared.monetary.Money;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "additional_plan_type")
 @NoArgsConstructor
 public abstract class AdditionalRatePlan {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
