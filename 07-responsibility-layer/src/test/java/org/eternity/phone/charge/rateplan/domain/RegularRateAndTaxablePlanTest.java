@@ -19,7 +19,8 @@ public class RegularRateAndTaxablePlanTest {
                 new Call("010-1111-2222", TimeInterval.of(LocalDateTime.of(2025, 1, 1, 10, 0, 20), LocalDateTime.of(2025, 1, 1, 10, 0, 30)))
         );
 
-        RegularRatePlan plan = new RegularRatePlan(Money.won(10), Duration.ofSeconds(10), new TaxableRatePlan(0.1));
+        RegularRatePlan plan = new RegularRatePlan(Money.won(10), Duration.ofSeconds(10),
+                                    new TaxableRatePlan(0.1));
 
         Money fee = plan.calculateFee(calls);
         assertThat(fee).isEqualTo(Money.won(22));

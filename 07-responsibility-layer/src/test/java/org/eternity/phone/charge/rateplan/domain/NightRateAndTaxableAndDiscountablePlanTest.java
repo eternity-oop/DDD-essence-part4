@@ -19,7 +19,9 @@ public class NightRateAndTaxableAndDiscountablePlanTest {
                 new Call("010-1111-2222", TimeInterval.of(LocalDateTime.of(2025, 1, 1, 23, 0, 20), LocalDateTime.of(2025, 1, 1, 23, 0, 30)))
         );
 
-        NightRatePlan plan = new NightRatePlan(Money.won(10), Money.won(1), Duration.ofSeconds(10), new TaxableRatePlan(0.1, new DiscountableRatePlan(Money.won(1))));
+        NightRatePlan plan = new NightRatePlan(Money.won(10), Money.won(1), Duration.ofSeconds(10),
+                                    new TaxableRatePlan(0.1,
+                                            new DiscountableRatePlan(Money.won(1))));
 
         Money fee = plan.calculateFee(calls);
         assertThat(fee).isEqualTo(Money.won(11));
